@@ -150,8 +150,6 @@
       <RuntimeVersion21>$(MicrosoftNETCoreApp21Version)</RuntimeVersion21>
       <AspNetCoreVersion21>$(MicrosoftAspNetCoreApp21Version)</AspNetCoreVersion21>
 
-      <RuntimeVersion31>$(MicrosoftNETCoreApp31Version)</RuntimeVersion31>
-      <AspNetCoreVersion31>$(MicrosoftAspNetCoreApp31Version)</AspNetCoreVersion31>
 
       <RuntimeVersion50>$(MicrosoftNETCoreApp50Version)</RuntimeVersion50>
       <AspNetCoreVersion50>$(MicrosoftAspNetCoreApp50Version)</AspNetCoreVersion50>

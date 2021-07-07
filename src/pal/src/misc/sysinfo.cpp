@@ -26,6 +26,7 @@ Revision History:
 #include <errno.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/sysctl.h>
 
 #if HAVE_SYSCONF
 // <unistd.h> already included above

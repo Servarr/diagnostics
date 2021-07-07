@@ -109,6 +109,7 @@ Target::CreateInstance(IRuntime **ppRuntime)
         {
             case ITarget::OperatingSystem::Linux:
             case ITarget::OperatingSystem::OSX:
+            case ITarget::OperatingSystem::FreeBSD:
                 // Only attempt to create linux/OSX core runtime if above failed
                 if (m_netcore == nullptr)
                 {
@@ -225,6 +226,8 @@ ITarget::OperatingSystem Target::GetOperatingSystem()
     return OperatingSystem::OSX;
 #elif defined(__linux__)
     return OperatingSystem::Linux;
+#elif defined(__FreeBSD__)
+    return OperatingSystem::FreeBSD;
 #else
     return OperatingSystem::Unknown;
 #endif

@@ -67,6 +67,12 @@ if (CLR_CMAKE_PLATFORM_UNIX)
   add_compile_options(-fsigned-char)
 endif(CLR_CMAKE_PLATFORM_UNIX)
 
+if(CLR_CMAKE_PLATFORM_FREEBSD)
+  add_compile_options(-Wno-macro-redefined)
+  add_compile_options(-Wno-pointer-to-int-cast)
+  add_compile_definitions(_WITH_GETLINE)
+endif(CLR_CMAKE_PLATFORM_FREEBSD)
+
 if(CLR_CMAKE_PLATFORM_UNIX_ARM)
    # Because we don't use CMAKE_C_COMPILER/CMAKE_CXX_COMPILER to use clang
    # we have to set the triple by adding a compiler argument

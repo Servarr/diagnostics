@@ -27,6 +27,7 @@ public:
         Windows         = 1,
         Linux           = 2,
         OSX             = 3,
+	FreeBSD         = 4,
     };
 
     virtual HRESULT STDMETHODCALLTYPE GetOperatingSystem(

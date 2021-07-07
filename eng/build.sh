@@ -259,7 +259,7 @@ while :; do
         -clang*)
             __Compiler=clang
             # clangx.y or clang-x.y
-            version="$(echo "$lowerI" | tr -d '[:alpha:]-=')"
+            version="$(echo "$1" | tr -d '[:alpha:]-=')"
             parts=(${version//./ })
             __ClangMajorVersion="${parts[0]}"
             __ClangMinorVersion="${parts[1]}"

@@ -8,7 +8,7 @@ include(CheckTypeSize)
 include(CheckLibraryExists)
 
 if(CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
-  set(CMAKE_REQUIRED_INCLUDES /usr/local/include)
+  set(CMAKE_REQUIRED_INCLUDES "usr/local/include;/usr/include")
 elseif(CMAKE_SYSTEM_NAME STREQUAL SunOS)
   set(CMAKE_REQUIRED_INCLUDES /opt/local/include)
 endif()
@@ -47,7 +47,7 @@ if(NOT CMAKE_SYSTEM_NAME STREQUAL FreeBSD AND NOT CMAKE_SYSTEM_NAME STREQUAL Net
   unset(CMAKE_REQUIRED_FLAGS)
 endif()
 
-check_include_files(sys/sysctl.h HAVE_SYS_SYSCTL_H)
+check_include_files("sys/types.h;sys/sysctl.h" HAVE_SYS_SYSCTL_H)
 check_include_files(gnu/lib-names.h HAVE_GNU_LIBNAMES_H)
 
 check_function_exists(kqueue HAVE_KQUEUE)

@@ -48,7 +48,7 @@ namespace Microsoft.Diagnostics.NETCore.Client
   </Target>
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>net5.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
