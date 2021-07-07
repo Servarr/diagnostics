@@ -24,6 +24,7 @@ namespace SOS
             Windows = 1,
             Linux = 2,
             OSX = 3,
+            FreeBSD         = 4,
         };
 
         internal static Guid IID_IDebuggerServices = new Guid("B4640016-6CA0-468E-BA2C-1FFF28DE7B72");

@@ -76,7 +76,7 @@ namespace SOS.Extensions
             IntPtr extensionLibrary = default;
             try
             {
-                extensionLibrary = DataTarget.PlatformFunctions.LoadLibrary(extensionPath);
+                extensionLibrary = NativeLibrary.Load(extensionPath);
             }
             catch (Exception ex) when (ex is DllNotFoundException || ex is BadImageFormatException)
             {

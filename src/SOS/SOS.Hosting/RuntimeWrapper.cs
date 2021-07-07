@@ -122,12 +122,12 @@ namespace SOS.Hosting
             Flush();
             if (_dacHandle != IntPtr.Zero)
             {
-                DataTarget.PlatformFunctions.FreeLibrary(_dacHandle);
+                NativeLibrary.Free(_dacHandle);
                 _dacHandle = IntPtr.Zero;
             }
             if (_dbiHandle != IntPtr.Zero)
             {
-                DataTarget.PlatformFunctions.FreeLibrary(_dbiHandle);
+                NativeLibrary.Free(_dbiHandle);
                 _dbiHandle = IntPtr.Zero;
             }
         }
@@ -326,7 +326,7 @@ namespace SOS.Hosting
             }
             if (_dbiHandle == IntPtr.Zero)
             {
-                _dbiHandle = DataTarget.PlatformFunctions.LoadLibrary(dbiFilePath);
+                _dbiHandle = NativeLibrary.Load(dbiFilePath);
                 if (_dbiHandle == IntPtr.Zero)
                 {
                     Trace.TraceError($"DBI LoadLibrary({dbiFilePath}) FAILED");
@@ -445,7 +445,7 @@ namespace SOS.Hosting
                     Trace.TraceError($"Could not find matching DAC {dacFilePath ?? ""} for this runtime: {_runtime.RuntimeModule.FileName}");
                     return IntPtr.Zero;
                 }
-                _dacHandle = DataTarget.PlatformFunctions.LoadLibrary(dacFilePath);
+                _dacHandle = NativeLibrary.Load(dacFilePath);
                 if (_dacHandle == IntPtr.Zero)
                 {
                     Trace.TraceError($"DAC LoadLibrary({dacFilePath}) FAILED");

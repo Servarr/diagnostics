@@ -20,6 +20,7 @@ namespace SOS.Hosting
             Windows         = 1,
             Linux           = 2,
             OSX             = 3,
+            FreeBSD         = 4,
         }
 
         public IntPtr ITarget { get; }
@@ -68,6 +69,9 @@ namespace SOS.Hosting
             }
             else if (_target.OperatingSystem == OSPlatform.OSX) {
                 return OperatingSystem.OSX;
+            }
+            else if (_target.OperatingSystem == OSPlatform.FreeBSD) {
+                return OperatingSystem.FreeBSD;
             }
             return OperatingSystem.Unknown;
         }

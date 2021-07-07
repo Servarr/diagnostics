@@ -872,7 +872,7 @@ namespace SOS.Hosting
         public static T GetDelegateFunction<T>(IntPtr library, string functionName)
             where T : Delegate
         {
-            IntPtr functionAddress = Microsoft.Diagnostics.Runtime.DataTarget.PlatformFunctions.GetLibraryExport(library, functionName);
+            IntPtr functionAddress = NativeLibrary.GetExport(library, functionName);
             if (functionAddress == IntPtr.Zero) {
                 return default;
             }

@@ -88,7 +88,7 @@ namespace SOS.Hosting
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
                     sos = "sos.dll";
                 }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD)) {
                     sos = "libsos.so";
                 }
                 else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
@@ -100,7 +100,7 @@ namespace SOS.Hosting
                 string sosPath = Path.Combine(SOSPath, sos);
                 try
                 {
-                    _sosLibrary = Microsoft.Diagnostics.Runtime.DataTarget.PlatformFunctions.LoadLibrary(sosPath);
+                    _sosLibrary = NativeLibrary.Load(sosPath);
                 }
                 catch (DllNotFoundException ex)
                 {
@@ -143,7 +143,7 @@ namespace SOS.Hosting
                 var uninitializeFunc = SOSHost.GetDelegateFunction<SOSUninitializeDelegate>(_sosLibrary, SOSUninitialize);
                 uninitializeFunc?.Invoke();
 
-                Microsoft.Diagnostics.Runtime.DataTarget.PlatformFunctions.FreeLibrary(_sosLibrary);
+                NativeLibrary.Free(_sosLibrary);
                 _sosLibrary = IntPtr.Zero;
             }
             _hostWrapper.Release();

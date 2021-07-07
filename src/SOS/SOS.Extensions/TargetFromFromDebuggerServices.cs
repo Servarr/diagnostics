@@ -33,6 +33,7 @@ namespace SOS.Extensions
                 DebuggerServices.OperatingSystem.Windows => OSPlatform.Windows,
                 DebuggerServices.OperatingSystem.Linux => OSPlatform.Linux,
                 DebuggerServices.OperatingSystem.OSX => OSPlatform.OSX,
+                DebuggerServices.OperatingSystem.FreeBSD => OSPlatform.Linux,
                 _ => throw new PlatformNotSupportedException($"Operating system not supported: {operatingSystem}"),
             };
 

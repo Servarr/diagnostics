@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework Condition="'$(BundleTools)' == 'true'">netcoreapp3.1</TargetFramework>
-    <TargetFramework Condition="'$(BundleTools)' != 'true'">netcoreapp2.1</TargetFramework>
+    <TargetFramework Condition="'$(BundleTools)' == 'true'">net5.0</TargetFramework>
+    <TargetFramework Condition="'$(BundleTools)' != 'true'">net5.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ToolCommandName>dotnet-dump</ToolCommandName>
     <RootNamespace>Microsoft.Diagnostic.Tools.Dump</RootNamespace>
